@@ -10,7 +10,6 @@ class VisionPage extends StatefulWidget {
 }
 
 class _VisionPageState extends State<VisionPage> {
-
   _launchURL() async {
     const url = 'https://kenyanavigators.org/';
     if (await canLaunch(url)) {
@@ -19,6 +18,7 @@ class _VisionPageState extends State<VisionPage> {
       throw 'Could not launch $url';
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,21 +27,17 @@ class _VisionPageState extends State<VisionPage> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
         elevation: 0.0,
-        title: Text( 'Calling',
+        title: Text(
+          'Calling',
           style: TextStyle(
-            fontFamily: 'Montserrat', 
-            fontSize: 18.0,
-            fontWeight: FontWeight.bold,
-            color: Colors.white 
-          ),
+              fontFamily: 'Montserrat',
+              fontSize: 18.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.white),
         ),
         centerTitle: true,
-        actions: <Widget>[
-          ShareButton()
-        ],
-
+        actions: <Widget>[ShareButton()],
       ),
-
       body: Container(
         height: MediaQuery.of(context).size.height - 80.0,
         // margin: EdgeInsets.only(top: 40.0),
@@ -53,79 +49,62 @@ class _VisionPageState extends State<VisionPage> {
         // ),
 
         child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Image(
-                image: AssetImage('assets/logo2.png'),
-                height: 60.0,
-              ),
-              Container(
-                height: 10.0,
-              ),
-              Text('The Navigators calling is: ',
-                style: TextStyle(
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image(
+              image: AssetImage('assets/logo2.png'),
+              height: 60.0,
+            ),
+            Container(
+              height: 10.0,
+            ),
+            Text(
+              'The Navigators calling is: ',
+              style: TextStyle(
                   fontWeight: FontWeight.w600,
                   fontSize: 18.0,
                   color: Theme.of(context).accentColor,
-                  fontFamily: 'montsserat'
-                ),
-              ),
-              Container(
-                height : 30.0
-              ),
-              Text(
-                'To advance the Gospel of Jesus and His Kingdom into the nations through spiritual generations of laborers living and discipling among the lost.',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16.0
-                ),
-              ),
-
-              Container(
-                height : 50.0
-              ),
-
-              RaisedButton(
+                  fontFamily: 'montsserat'),
+            ),
+            Container(height: 30.0),
+            Text(
+              'To advance the Gospel of Jesus and His Kingdom into the nations through spiritual generations of laborers living and discipling among the lost.',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 16.0),
+            ),
+            Container(height: 50.0),
+            RaisedButton(
                 elevation: 10.0,
                 textColor: Theme.of(context).primaryColorLight,
                 padding: EdgeInsets.all(0.0),
                 child: Container(
                   width: MediaQuery.of(context).size.width * 0.80,
                   decoration: BoxDecoration(
-                    gradient: LinearGradient(colors: [
-                      Theme.of(context).primaryColor,
-                      Theme.of(context).accentColor
-                    ]),
+                    color: Theme.of(context).primaryColor,
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   padding: EdgeInsets.all(10.0),
                   child: Center(
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget> [
-                        Icon(Icons.link,
-                          color: Theme.of(context).primaryColorLight
-                        ),
-                        SizedBox(width: 10.0),
-                        Text('Website',
-                          style: TextStyle(
-                            fontSize: 20.0,
-                            color: Theme.of(context).primaryColorLight
-                          ),
-                        )
-                      ]
-                    ),
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Icon(Icons.link,
+                              color: Theme.of(context).primaryColorLight),
+                          SizedBox(width: 10.0),
+                          Text(
+                            'Website',
+                            style: TextStyle(
+                                fontSize: 20.0,
+                                color: Theme.of(context).primaryColorLight),
+                          )
+                        ]),
                   ),
                 ),
-                onPressed: _launchURL
-              ),
-            ],
-          )
-        ),
-        
+                onPressed: _launchURL),
+          ],
+        )),
       ),
-      
     );
   }
 }
